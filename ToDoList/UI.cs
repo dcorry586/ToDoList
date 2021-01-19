@@ -2,14 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.SqlClient;
 using System.Threading.Tasks;
 
 namespace ToDoList
 {
     class UI
     {
+        // instantiate DatabaseImplementation class
+        DatabaseImplementation DB = new DatabaseImplementation();
+
+
+        // global variables
         private bool programTerminate = false; // variable to base while loop off
         private string userInstruction;
+       public bool CheckIfConnectedToDB;
+
+        static string TaskTitle, TaskDescription;
+
+       internal string userTaskTitle;
+        internal string userTaskDescription;
+        
 
         // property for userInstruction
         public string getUserInstruction
@@ -24,47 +37,27 @@ namespace ToDoList
             set { programTerminate = value; }
         }
 
-        // can i do a prop for private Greeting() ?
-
-
-
         internal void Greeting()
         {
             Console.WriteLine("Welcome To Task Manager Ultimate!");
         }
 
-         internal void UserInstructions()
+         internal void PrintUserInstructions()
         {
-            Console.WriteLine("User Options : \n");
+            Console.WriteLine("\nUser Options : \n");
             Console.WriteLine("Each command has a key inside the parenthesis - ( ).\n Type in this key to specify what you want the program to do.");
-            Console.WriteLine("Add Task (add) \n");
+            Console.WriteLine("\nAdd Task (add) \n");
             Console.WriteLine("View Tasks (list) \n");
             Console.WriteLine("Edit Task (edit) \n");
             Console.WriteLine("Delete Task (delete) \n");
             Console.WriteLine("Exit (exit) \n");
 
         }
-         void AddTask() // insert string into SQL Server DB
-        {
-            Console.WriteLine("AddTask() has been called \n");
-        }
-         void ViewTasks() // Read all task strings from DB and print out to console
-        {
-            Console.WriteLine("ViewTask() has been called \n");
-        }
-         void EditTask() // update specifieed task string in console and update previously stored version of this task string in DB
-        {
-            Console.WriteLine("EditTask() has been called \n");
-        }
-         void DeleteTask() // remove specified task string from DB
-        {
-            Console.WriteLine("DeleteTask() has been called \n");
-        }
 
          internal void AwaitUserInstrucitons()
         {
             Console.WriteLine("AwaitUserInstructions has been called \n");
-            Console.WriteLine(">\t");
+            Console.WriteLine("-> ");
             // get input from user
             getUserInstruction = Console.ReadLine();
         }
@@ -79,16 +72,16 @@ namespace ToDoList
             switch (userInstruction_)
             {
                 case "add":
-                    Console.WriteLine("Add has been entered \n");
+                    DB.AddTask();
                     break;
                 case "view":
-                    Console.WriteLine("view has been entered \n");
+                    DB.ViewTasks();
                     break;
                 case "edit":
-                    Console.WriteLine("edit has been entered \n");
+                    DB.EditTask();
                     break;
                 case "delete":
-                    Console.WriteLine("delete has been entered \n");
+                    DB.DeleteTask();
                     break;
                 case "exit":
                     Console.WriteLine("Program exiting...");

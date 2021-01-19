@@ -15,17 +15,18 @@ namespace ToDoList
         {
             UI ui = new UI();
 
-
             ui.Greeting(); // print greeting message 
-            ui.UserInstructions(); // print user instructions
+            ui.PrintUserInstructions(); // print user instructions
            // Greeting() , UserInstructions() ; both printed at start before while loop.
             
         // while loop start
             while (ui.getProgramTerminate != true) // getProgramTerminate
             {
+                // connect to database
                 ui.AwaitUserInstrucitons();
                 
                 ui.RespondToUserInstructions(ui.getUserInstruction); // getUserInstruction
+                // close connection to database
             } // while loop end
 
         }
