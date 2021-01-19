@@ -1,4 +1,17 @@
-﻿using System;
+﻿/*
+ * Program.cs
+ * 
+ * Version information
+ * 
+ * Author: Dylan Corry
+ * Date: 19/01/2021 
+ * Description: Driver for console application.
+ * 
+ * Copyright notice
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

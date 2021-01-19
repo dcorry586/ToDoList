@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+ * Program.cs
+ * 
+ * Version information
+ * 
+ * Author: Dylan Corry
+ * Date: 19/01/2021 
+ * Description: clas for user interface.
+ * 
+ * Copyright notice
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

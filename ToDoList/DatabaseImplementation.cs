@@ -1,4 +1,16 @@
-﻿using System;
+﻿/*
+ * DatabaseImplementation.cs
+ * 
+ * Version information
+ * 
+ * Author: Dylan Corry
+ * Date: 19/01/2021 
+ * Description: Api to interface with SQL server and serve user requests to server. Can also respond with user requests (READ database for example).
+ * 
+ * Copyright notice
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
